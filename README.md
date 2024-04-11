@@ -1,1 +1,1 @@
-# Snapdrop server-side code
+# Snapdrop server-side
