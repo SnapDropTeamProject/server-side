@@ -6,9 +6,8 @@ package org;
 
 import java.net.InetSocketAddress;
 
-import org.abstractions.BaseModule;
-
-import org.app.AppModule;
+import org.handlers.HealthCheckHandler;
+import org.http.Endpoint;
 
 import com.sun.net.httpserver.HttpServer;
 
@@ -18,15 +17,15 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        BaseModule[] modules = new BaseModule[] {
-            new AppModule()
+        Endpoint[] endpoints = new Endpoint[] {
+            new Endpoint("/health", new HealthCheckHandler())
         };
         
         try {
             HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
 
-            for (BaseModule module : modules) {
-                module.initialize(server);
+            for (Endpoint endpoint : endpoints) {
+                server.createContext(endpoint.getPath(), endpoint.getHandler());
             }
             
             server.start();
