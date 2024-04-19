@@ -1,0 +1,12 @@
+class EndpointHandler{
+    String _response = "Hello";
+
+    EndpointHandler();
+
+
+    private EndpointResponse handle(HttpExchange exchange){
+        exchange.sendResponseHeaders(200, response.length());
+        exchange.getResponseBody().write(response.getBytes());
+        exchange.close();
+    }     
+}
