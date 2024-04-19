@@ -1,0 +1,12 @@
+class EndpointResponse{
+    private int _status;
+    private String _response;
+    EndpointResponse(int status, String response){
+        _status = status;
+        _response = response;
+    }
+    private void print(){
+        println(_status);
+        println(_response);
+    }
+}
