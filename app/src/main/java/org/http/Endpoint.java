@@ -4,10 +4,11 @@ import java.io.IOException;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import org.handlers.EndpointHandler;
 
 public class Endpoint implements HttpHandler {
   private String _path;
-  private HttpHandler _handler;
+  private EndpointHandler _handler;
 
   public Endpoint(String path, EndpointHandler handler) {
     _path = path;
@@ -23,7 +24,7 @@ public class Endpoint implements HttpHandler {
     return _path;
   }
 
-  public HttpHandler getHandler() {
+  public EndpointHandler getHandler() {
     return _handler;
   }
 }

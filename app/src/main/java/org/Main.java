@@ -7,8 +7,10 @@ package org;
 import java.net.InetSocketAddress;
 
 import org.handlers.HealthCheckHandler;
+import org.handlers.EndpointHandler;
 import org.http.Endpoint;
 
+import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
 public class Main {
@@ -18,14 +20,14 @@ public class Main {
 
     public static void main(String[] args) {
         Endpoint[] endpoints = new Endpoint[] {
-            new Endpoint("/health", new HealthCheckHandler())
+            new Endpoint("/health", new EndpointHandler()),
         };
         
         try {
             HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
 
             for (Endpoint endpoint : endpoints) {
-                server.createContext(endpoint.getPath(), endpoint.getHandler());
+                server.createContext(endpoint.getPath(), endpoint.getHandler().getHandler());
             }
             
             server.start();
