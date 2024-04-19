@@ -9,7 +9,7 @@ public class Endpoint implements HttpHandler {
   private String _path;
   private HttpHandler _handler;
 
-  public Endpoint(String path, HttpHandler handler) {
+  public Endpoint(String path, EndpointHandler handler) {
     _path = path;
     _handler = handler;
   }
