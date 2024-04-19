@@ -1,3 +1,5 @@
+package org.handlers;
+
 class EndpointResponse{
     private int _status;
     private String _response;
