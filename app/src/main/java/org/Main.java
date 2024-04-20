@@ -25,7 +25,7 @@ public class Main {
             HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
 
             for (Endpoint endpoint : endpoints) {
-                server.createContext(endpoint.getPath(), endpoint.getHandler());
+                server.createContext(endpoint.getPath(), endpoint);
             }
             
             server.start();
