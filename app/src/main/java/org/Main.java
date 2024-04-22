@@ -8,6 +8,7 @@ import java.net.InetSocketAddress;
 
 import org.handlers.HealthCheckHandler;
 import org.http.Endpoint;
+import org.http.EndpointHandler;
 
 import com.sun.net.httpserver.HttpServer;
 
@@ -18,7 +19,8 @@ public class Main {
 
     public static void main(String[] args) {
         Endpoint[] endpoints = new Endpoint[] {
-            new Endpoint("/health", new HealthCheckHandler())
+            new Endpoint("/health", new HealthCheckHandler()),
+            new Endpoint("/end", new EndpointHandler()),
         };
         
         try {

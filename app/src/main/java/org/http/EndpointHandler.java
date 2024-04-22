@@ -13,8 +13,10 @@ public class EndpointHandler{
     }
 
     public EndpointResponse handle(HttpExchange exchange) throws IOException{
-        exchange.sendResponseHeaders(200, _response.length());
-        exchange.getResponseBody().write(_response.getBytes());
+        String response = "Hey";
+      
+        exchange.sendResponseHeaders(200, response.length());
+        exchange.getResponseBody().write(response.getBytes());
         exchange.close();
         return new EndpointResponse(1, _response);
     }
