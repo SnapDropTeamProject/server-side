@@ -18,14 +18,14 @@ public class Main {
 
     public static void main(String[] args) {
         Endpoint[] endpoints = new Endpoint[] {
-            new Endpoint("/health", new HealthCheckHandler())
+            new Endpoint("/health", new HealthCheckHandler()))
         };
         
         try {
             HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
 
             for (Endpoint endpoint : endpoints) {
-                server.createContext(endpoint.getPath(), endpoint.getHandler());
+                server.createContext(endpoint.getPath(), endpoint);
             }
             
             server.start();

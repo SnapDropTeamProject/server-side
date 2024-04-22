@@ -22,8 +22,4 @@ public class Endpoint implements HttpHandler {
   public String getPath() {
     return _path;
   }
-
-  public HttpHandler getHandler() {
-    return _handler;
-  }
 }
